@@ -1,0 +1,5 @@
+ansible inmbzr1157.in.dst.ibm.com -i inventory -m copy -a content="Managed by Vinays Ansible\n" dest=/etc/motd
+ ansible all -i inventory -m command -a env 
+ansible all -i inventory -m sheel -a id
+ ansible-doc -s user ansible-doc -l
+ansible-playbook -i inventory 1playbook.yaml

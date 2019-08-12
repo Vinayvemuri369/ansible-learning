@@ -1,0 +1,19 @@
+---
+- name: LAB1 playbook
+  hosts: [all] 
+  tasks:
+  - name: to install httpd service
+    yum: name=httpd
+  - name: to enable docker service
+    service: name=httpd state=started
+  - name: create a file in html folder
+    copy:
+      content: "html content by the ansible playbook1"
+      dest: /var/www/html/index.html
+      force: yes
+      mode: 0444
+  - firewalld:
+      service: http
+      permanent: yes
+      state: enabled
+...

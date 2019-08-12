@@ -1,0 +1,15 @@
+---
+- name: Sample playbook1
+  hosts: [all] 
+  tasks:
+  - name: to install docker service
+    yum: name=docker
+  - name: to enable docker service
+    service: name=docker state=reloaded
+  - name: create a file in home
+    copy:
+      content: "created from the ansible playbook1"
+      dest: /home/learn/playbookfilecreated.txt
+      force: no
+      mode: 777
+...
